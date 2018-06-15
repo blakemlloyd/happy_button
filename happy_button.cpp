@@ -1,28 +1,25 @@
 #include "Arduino.h"
 #include "happy_button.h"
 
-class happy_button
+happy_button::happy_button(int pin)
 {
-    happy_button::happy_button(int pin)
-    {
-        pinMode(pin, INPUT);
-        _pin = pin;
-    }
+    pinMode(pin, INPUT);
+    _pin = pin;
+}
 
-    bool happy_button::isStateUpdated()
+bool happy_button::isStateUpdated()
+{
+    int tmpButtonState = digitalRead(_pin);
+    if(tmpButtonState != _state)
     {
-        int tmpButtonState = digitalRead(_pin);
-        if(tmpButtonState != _state)
+        _state = tmpButtonState;
+        if(_state == HIGH)
         {
-            _state = tmpButtonState;
-            if(_state = LOW)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }

@@ -10,7 +10,7 @@ class happy_button
         bool isStateUpdated();
     private:
         int _pin;
-        int _state;
-}
+        int _state = -1;
+};
 
 #endif
