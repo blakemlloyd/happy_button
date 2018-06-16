@@ -12,7 +12,6 @@ void happy_button::setId(char* id)
 {
     topic = (char*)malloc(strlen(id) + 22 + 1);
     snprintf(topic, strlen(id) + 22, "homeassistant/%s/button", id);
-    Serial.println(topic);
 }
 
 bool happy_button::checkState()
